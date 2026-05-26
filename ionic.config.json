@@ -1,0 +1,8 @@
+{
+  "name": "Gestor de citas medicas",
+  "integrations": {
+    "capacitor": {}
+  },
+  "type": "angular",
+  "id": "612853f6"
+}

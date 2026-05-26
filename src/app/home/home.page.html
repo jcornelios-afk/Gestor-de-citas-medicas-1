@@ -1,0 +1,69 @@
+<ion-content class="home-content">
+  
+  <div class="panel-superior">
+    <div class="info-usuario">
+      <span class="saludo">Bienvenido/a</span>
+      <span class="nombre-usuario">{{ paciente?.nombre }}</span>
+    </div>
+    <div class="icono-campana" (click)="irNotificaciones()">
+      <ion-icon name="notifications-outline"></ion-icon>
+      <span class="punto-notificacion"></span>
+    </div>
+  </div>
+
+  <div class="panel-cita">
+    <div class="cita-header">
+      <span class="cita-titulo">Próxima Cita</span>
+      <ion-icon name="calendar-outline"></ion-icon>
+    </div>
+    
+    <div class="cita-especialidad">{{ proximaCita?.especialidad }}</div>
+    <div class="cita-medico">{{ proximaCita?.medico }}</div>
+    
+    <div class="cita-detalles">
+      <div class="cita-fecha">
+        <ion-icon name="today-outline"></ion-icon>
+        <span>{{ proximaCita?.fecha }}</span>
+      </div>
+      <div class="cita-hora">
+        <ion-icon name="time-outline"></ion-icon>
+        <span>{{ proximaCita?.hora }}</span>
+      </div>
+    </div>
+  </div>
+
+  <div class="seccion-accesos">
+    <span class="titulo-accesos">Accesos Rápidos</span>
+  </div>
+
+  <div class="grid-accesos">
+  <div class="acceso-card agendar" (click)="irAgendarCita()">
+    <div class="icono-acceso">
+      <ion-icon name="add-circle-outline"></ion-icon>
+    </div>
+    <span class="texto-acceso">Agendar Cita</span>
+  </div>
+
+  <div class="acceso-card historial" (click)="irHistorial()">
+    <div class="icono-acceso">
+      <ion-icon name="document-text-outline"></ion-icon>
+    </div>
+    <span class="texto-acceso">Historial</span>
+  </div>
+
+  <div class="acceso-card perfil" (click)="irPerfil()">
+    <div class="icono-acceso">
+      <ion-icon name="person-outline"></ion-icon>
+    </div>
+    <span class="texto-acceso">Mi Perfil</span>
+  </div>
+
+  <div class="acceso-card notificaciones" (click)="irNotificaciones()">
+    <div class="icono-acceso">
+      <ion-icon name="notifications-outline"></ion-icon>
+    </div>
+    <span class="texto-acceso">Notificaciones</span>
+  </div>
+</div>
+
+</ion-content>

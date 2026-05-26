@@ -1,0 +1,194 @@
+$fondo-total: #e8f0f8;
+$texto-principal: #1e3a5f;
+$texto-secundario: #4a6d8c;
+$acento-primario: #3b6fa0;
+$acento-primario-claro: #dce8f2;
+$verde-cita: #5a9e7e;
+$naranja-historial: #e8875b;
+$rojo-perfil: #c75b6e;
+$sombra-suave: rgba(0, 0, 0, 0.04);
+
+ion-toolbar {
+  --background: #3b6fa0;
+  --color: #ffffff;
+  --border-color: transparent;
+  box-shadow: 0 4px 16px rgba(59, 111, 160, 0.25);
+}
+
+ion-title {
+  font-weight: 700;
+  font-size: 18px;
+  letter-spacing: -0.3px;
+}
+
+ion-button {
+  --color: #ffffff;
+}
+
+ion-content {
+  --background: #{$fondo-total};
+}
+
+.historial-content {
+  --background: #{$fondo-total};
+  --padding-top: 20px;
+  --padding-bottom: 24px;
+  --padding-start: 20px;
+  --padding-end: 20px;
+}
+
+.filtros {
+  display: flex;
+  gap: 8px;
+  margin-bottom: 20px;
+  overflow-x: auto;
+}
+
+.filtro-item {
+  padding: 8px 16px;
+  border-radius: 20px;
+  font-size: 13px;
+  font-weight: 600;
+  color: $texto-secundario;
+  background: #ffffff;
+  white-space: nowrap;
+  cursor: pointer;
+  transition: all 0.2s ease;
+
+  &.activo {
+    background: $acento-primario;
+    color: #ffffff;
+  }
+
+  &:active {
+    transform: scale(0.95);
+  }
+}
+
+.lista-citas {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+.cita-card {
+  background: #ffffff;
+  border-radius: 16px;
+  padding: 0;
+  box-shadow: 0 2px 8px $sombra-suave;
+  cursor: pointer;
+  transition: all 0.2s ease;
+  overflow: hidden;
+  position: relative;
+
+  &:active {
+    transform: scale(0.98);
+  }
+}
+
+.cita-estado {
+  position: absolute;
+  left: 0;
+  top: 0;
+  bottom: 0;
+  width: 4px;
+
+  &.pendiente { background: $naranja-historial; }
+  &.completada { background: $verde-cita; }
+  &.cancelada { background: $rojo-perfil; }
+}
+
+.cita-contenido {
+  display: flex;
+  align-items: center;
+  padding: 18px;
+  gap: 14px;
+}
+
+.cita-especialidad-icono {
+  width: 44px;
+  height: 44px;
+  min-width: 44px;
+  border-radius: 12px;
+  background: $acento-primario-claro;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  ion-icon {
+    font-size: 22px;
+    color: $acento-primario;
+  }
+}
+
+.cita-info {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  gap: 3px;
+}
+
+.cita-especialidad {
+  font-size: 15px;
+  font-weight: 600;
+  color: $texto-principal;
+}
+
+.cita-medico {
+  font-size: 12px;
+  color: $texto-secundario;
+}
+
+.cita-fecha-hora {
+  display: flex;
+  align-items: center;
+  gap: 4px;
+  margin-top: 2px;
+  font-size: 11px;
+  color: $texto-secundario;
+
+  ion-icon {
+    font-size: 13px;
+  }
+}
+
+.cita-flecha {
+  ion-icon {
+    font-size: 18px;
+    color: #b0c8de;
+  }
+}
+
+.cita-tag {
+  padding: 0 18px 14px 18px;
+}
+
+.tag-pendiente {
+  font-size: 11px;
+  font-weight: 600;
+  color: $naranja-historial;
+  background: #fde4d6;
+  padding: 4px 10px;
+  border-radius: 8px;
+  text-transform: uppercase;
+}
+
+.tag-completada {
+  font-size: 11px;
+  font-weight: 600;
+  color: $verde-cita;
+  background: #e8f5ee;
+  padding: 4px 10px;
+  border-radius: 8px;
+  text-transform: uppercase;
+}
+
+.tag-cancelada {
+  font-size: 11px;
+  font-weight: 600;
+  color: $rojo-perfil;
+  background: #f8dce1;
+  padding: 4px 10px;
+  border-radius: 8px;
+  text-transform: uppercase;
+}

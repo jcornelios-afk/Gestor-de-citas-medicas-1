@@ -1,0 +1,42 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-buttons slot="start">
+      <ion-button (click)="volver()">
+        <ion-icon slot="icon-only" name="arrow-back-outline"></ion-icon>
+      </ion-button>
+    </ion-buttons>
+    <ion-title>Notificaciones</ion-title>
+    <ion-buttons slot="end">
+      <ion-button>
+        <ion-icon slot="icon-only" name="checkmark-done-outline"></ion-icon>
+      </ion-button>
+    </ion-buttons>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content class="notificaciones-content">
+  
+  <div class="lista-notificaciones">
+    <div 
+      class="notificacion-item" 
+      *ngFor="let not of notificaciones"
+      [class.no-leida]="!not.leida"
+      (click)="marcarLeida(not)">
+      
+      <div class="icono-notificacion" [style.background]="not.color + '20'">
+        <ion-icon [name]="not.icono" [style.color]="not.color"></ion-icon>
+      </div>
+
+      <div class="contenido-notificacion">
+        <div class="notificacion-header">
+          <span class="notificacion-titulo">{{ not.titulo }}</span>
+          <span class="notificacion-fecha">{{ not.fecha }}</span>
+        </div>
+        <p class="notificacion-mensaje">{{ not.mensaje }}</p>
+      </div>
+
+      <div class="punto-leida" *ngIf="!not.leida"></div>
+    </div>
+  </div>
+
+</ion-content>

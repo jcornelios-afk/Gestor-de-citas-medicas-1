@@ -1,0 +1,81 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-buttons slot="start">
+      <ion-button (click)="volver()">
+        <ion-icon slot="icon-only" name="arrow-back-outline"></ion-icon>
+      </ion-button>
+    </ion-buttons>
+    <ion-title>Seleccionar Horario</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content class="horario-content">
+
+  <div class="info-medico">
+    <span class="medico-nombre">{{ medico?.nombre }}</span>
+    <span class="medico-especialidad">{{ especialidad?.nombre }}</span>
+  </div>
+
+  <div class="calendario">
+    <div class="mes-header">
+      <ion-icon name="chevron-back-outline"></ion-icon>
+      <span class="mes-texto">{{ mesActual }}</span>
+      <ion-icon name="chevron-forward-outline"></ion-icon>
+    </div>
+
+    <div class="dias-semana">
+      <span class="dia-semana" *ngFor="let dia of diasSemana">{{ dia }}</span>
+    </div>
+
+    <div class="dias-numeros">
+      <div 
+        class="dia-numero" 
+        *ngFor="let dia of diasNumeros"
+        [class.seleccionado]="dia === diaSeleccionado"
+        (click)="seleccionarDia(dia)">
+        {{ dia }}
+      </div>
+    </div>
+  </div>
+
+  <div class="horarios">
+    <div class="turno">
+      <span class="turno-titulo">Mañana</span>
+      <div class="horas-grid">
+        <div 
+          class="hora-item" 
+          *ngFor="let hora of horasManana"
+          [class.seleccionada]="hora === horaSeleccionada"
+          (click)="seleccionarHora(hora)">
+          {{ hora }}
+        </div>
+      </div>
+    </div>
+
+    <div class="turno">
+      <span class="turno-titulo">Tarde</span>
+      <div class="horas-grid">
+        <div 
+          class="hora-item" 
+          *ngFor="let hora of horasTarde"
+          [class.seleccionada]="hora === horaSeleccionada"
+          (click)="seleccionarHora(hora)">
+          {{ hora }}
+        </div>
+      </div>
+    </div>
+  </div>
+
+</ion-content>
+
+<ion-footer>
+  <ion-toolbar>
+    <ion-button 
+      expand="block" 
+      class="boton-continuar"
+      [disabled]="!horaSeleccionada"
+      (click)="continuar()">
+      Continuar
+    </ion-button>
+  </ion-toolbar>
+</ion-footer>

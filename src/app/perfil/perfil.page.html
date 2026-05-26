@@ -1,0 +1,68 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-buttons slot="start">
+      <ion-button (click)="volver()">
+        <ion-icon slot="icon-only" name="arrow-back-outline"></ion-icon>
+      </ion-button>
+    </ion-buttons>
+    <ion-title>Mi Perfil</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content class="perfil-content">
+  
+  <div class="avatar-perfil">
+    <div class="iniciales-avatar">
+      <span>{{ paciente?.nombre?.charAt(0) }}</span>
+    </div>
+    <h2>{{ paciente?.nombre }}</h2>
+    <p>Paciente registrado</p>
+  </div>
+
+  <div class="info-cuenta">
+    <div class="info-item">
+      <ion-icon name="card-outline"></ion-icon>
+      <div class="info-texto">
+        <span class="info-label">DNI</span>
+        <span class="info-valor">{{ paciente?.dni }}</span>
+      </div>
+    </div>
+
+    <div class="info-item">
+      <ion-icon name="calendar-outline"></ion-icon>
+      <div class="info-texto">
+        <span class="info-label">Fecha de nacimiento</span>
+        <span class="info-valor">01-01-1990</span>
+      </div>
+    </div>
+
+    <div class="info-item">
+      <ion-icon name="call-outline"></ion-icon>
+      <div class="info-texto">
+        <span class="info-label">Teléfono</span>
+        <span class="info-valor">+51 987 654 321</span>
+      </div>
+    </div>
+
+    <div class="info-item">
+      <ion-icon name="mail-outline"></ion-icon>
+      <div class="info-texto">
+        <span class="info-label">Correo electrónico</span>
+        <span class="info-valor">marcos.ramirez@gmail.com</span>
+      </div>
+    </div>
+  </div>
+
+  <div class="botones-perfil">
+    <ion-button expand="block" class="boton-editar">
+      <ion-icon slot="start" name="create-outline"></ion-icon>
+      Editar Información
+    </ion-button>
+
+    <ion-button expand="block" class="boton-salir" (click)="cerrarSesion()">
+      <ion-icon slot="start" name="log-out-outline"></ion-icon>
+      Cerrar Sesión
+    </ion-button>
+  </div>
+
+</ion-content>

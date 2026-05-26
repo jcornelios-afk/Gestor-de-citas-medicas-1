@@ -1,0 +1,60 @@
+<ion-content class="confirmacion-content">
+  
+  <div class="tarjeta-confirmacion">
+    
+    <div class="icono-confirmacion">
+      <ion-icon name="checkmark-circle-outline"></ion-icon>
+    </div>
+
+    <h2 class="titulo-confirmacion">¡Cita Agendada!</h2>
+    <p class="subtitulo-confirmacion">Tu cita ha sido registrada exitosamente</p>
+
+    <div class="detalles-cita">
+      <div class="detalle-item">
+        <ion-icon name="medkit-outline"></ion-icon>
+        <div class="detalle-texto">
+          <span class="detalle-label">Especialidad</span>
+          <span class="detalle-valor">{{ cita?.especialidad }}</span>
+        </div>
+      </div>
+
+      <div class="detalle-item">
+        <ion-icon name="person-outline"></ion-icon>
+        <div class="detalle-texto">
+          <span class="detalle-label">Médico</span>
+          <span class="detalle-valor">{{ cita?.medico }}</span>
+        </div>
+      </div>
+
+      <div class="detalle-item">
+        <ion-icon name="calendar-outline"></ion-icon>
+        <div class="detalle-texto">
+          <span class="detalle-label">Fecha</span>
+          <span class="detalle-valor">{{ cita?.dia }} de {{ cita?.mes }}</span>
+        </div>
+      </div>
+
+      <div class="detalle-item">
+        <ion-icon name="time-outline"></ion-icon>
+        <div class="detalle-texto">
+          <span class="detalle-label">Hora</span>
+          <span class="detalle-valor">{{ cita?.hora }}</span>
+        </div>
+      </div>
+    </div>
+
+    <div class="codigo-cita">
+      <span class="codigo-label">Código de cita</span>
+      <span class="codigo-numero">#CITA-2026-0042</span>
+    </div>
+
+    <ion-button 
+      expand="block" 
+      class="boton-home"
+      (click)="volverHome()">
+      Volver al Inicio
+    </ion-button>
+
+  </div>
+
+</ion-content>

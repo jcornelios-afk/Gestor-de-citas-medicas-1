@@ -1,0 +1,57 @@
+<ion-content class="login-content">
+  
+  <div class="hero">
+    <img src="assets/icon/mi-logo.ico" alt="Logo" class="logo-icon" />
+    <h1>Mis Citas</h1>
+    <p>Hospital Sergio E. Bernales</p>
+  </div>
+
+  <div class="formulario">
+    
+    <div class="campo">
+      <label>DNI</label>
+      <ion-input 
+        type="tel"
+        [(ngModel)]="dni" 
+        maxlength="8"
+        placeholder="12345678"
+        clearInput>
+      </ion-input>
+      <div class="input-hint" *ngIf="dni && dni.length > 0 && dni.length !== 8">
+        8 dígitos requeridos
+      </div>
+    </div>
+
+    <div class="campo">
+      <label>Contraseña</label>
+      <ion-input 
+        [type]="mostrarContrasena ? 'text' : 'password'"
+        [(ngModel)]="contrasena"
+        placeholder="••••••••"
+        clearInput>
+        <ion-button slot="end" fill="clear" (click)="toggleContrasena()">
+          <ion-icon [name]="mostrarContrasena ? 'eye-off-outline' : 'eye-outline'"></ion-icon>
+        </ion-button>
+      </ion-input>
+    </div>
+
+    <ion-button 
+      expand="block" 
+      (click)="login()" 
+      [disabled]="!dni || !contrasena"
+      class="boton">
+      Ingresar
+    </ion-button>
+
+    <div class="error-mensaje" *ngIf="mensajeError">
+      <ion-icon name="alert-circle-outline"></ion-icon>
+      <span>{{ mensajeError }}</span>
+    </div>
+
+  </div>
+
+  <div class="footer">
+    <p>¿Primera vez? <strong>Acércate a ventanilla con tu DNI</strong></p>
+  </div>
+
+</ion-content>

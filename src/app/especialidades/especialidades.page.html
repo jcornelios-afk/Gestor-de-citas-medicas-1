@@ -1,0 +1,40 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-title>Agendar cita</ion-title>
+    <ion-buttons slot="end">
+      <ion-button (click)="cerrarSesion()">
+        <ion-icon slot="icon-only" name="log-out-outline"></ion-icon>
+      </ion-button>
+    </ion-buttons>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content class="especialidades-content">
+  
+  <div class="buscador">
+    <ion-searchbar 
+      [(ngModel)]="textoBusqueda" 
+      placeholder="Buscar especialidad..."
+      animated>
+    </ion-searchbar>
+  </div>
+
+  <div class="lista-especialidades">
+    <div 
+      class="especialidad-item" 
+      *ngFor="let esp of especialidadesFiltradas"
+      (click)="seleccionarEspecialidad(esp)">
+      <div class="icono-item">
+        <ion-icon [name]="esp.icono"></ion-icon>
+      </div>
+      <div class="info-item">
+        <span class="nombre-item">{{ esp.nombre }}</span>
+        <span class="medicos-item">{{ esp.medicos }} médicos disponibles</span>
+      </div>
+      <div class="flecha-item">
+        <ion-icon name="chevron-forward-outline"></ion-icon>
+      </div>
+    </div>
+  </div>
+
+</ion-content>

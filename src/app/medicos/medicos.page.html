@@ -1,0 +1,36 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-buttons slot="start">
+      <ion-button (click)="volver()">
+        <ion-icon slot="icon-only" name="arrow-back-outline"></ion-icon>
+      </ion-button>
+    </ion-buttons>
+    <ion-title>{{ especialidad?.nombre }}</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content class="medicos-content">
+
+  <div class="lista-medicos">
+    <div 
+      class="medico-item" 
+      *ngFor="let med of medicos"
+      (click)="seleccionarMedico(med)">
+      <div class="avatar-medico">
+        <img [src]="med.imagen" [alt]="med.nombre" class="foto-medico" />
+      </div>
+      <div class="info-medico">
+        <span class="nombre-medico">{{ med.nombre }}</span>
+        <span class="experiencia-medico">{{ med.experiencia }} de experiencia</span>
+        <div class="estrellas">
+          <ion-icon name="star" *ngFor="let e of getEstrellas(med.estrellas)"></ion-icon>
+          <ion-icon name="star-outline" *ngFor="let e of getEstrellasVacias(med.estrellas)"></ion-icon>
+        </div>
+      </div>
+      <div class="flecha-medico">
+        <ion-icon name="chevron-forward-outline"></ion-icon>
+      </div>
+    </div>
+  </div>
+
+</ion-content>

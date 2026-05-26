@@ -1,0 +1,121 @@
+$fondo-total: #e8f0f8;
+$texto-principal: #1e3a5f;
+$texto-secundario: #4a6d8c;
+$acento-primario: #3b6fa0;
+$acento-primario-claro: #dce8f2;
+$sombra-suave: rgba(0, 0, 0, 0.04);
+$sombra-media: rgba(59, 111, 160, 0.12);
+
+ion-toolbar {
+  --background: #3b6fa0;
+  --color: #ffffff;
+  --border-color: transparent;
+  padding: 8px 4px;
+  box-shadow: 0 4px 16px rgba(59, 111, 160, 0.25);
+}
+
+ion-title {
+  font-weight: 700;
+  font-size: 18px;
+  letter-spacing: -0.3px;
+}
+
+ion-button {
+  --color: #ffffff;
+}
+
+ion-content {
+  --background: #{$fondo-total};
+  --padding-top: 0;
+  --padding-bottom: 0;
+  --padding-start: 0;
+  --padding-end: 0;
+}
+
+.especialidades-content {
+  --background: #{$fondo-total};
+  --padding-top: 30px;
+  --padding-bottom: 24px;
+  --padding-start: 20px;
+  --padding-end: 20px;
+}
+
+.buscador {
+  margin-bottom: 24px;
+
+  ion-searchbar {
+    --background: #ffffff;
+    --color: #{$texto-principal};
+    --placeholder-color: #8aa0b8;
+    --border-radius: 12px;
+    --box-shadow: 0 1px 4px rgba(0, 0, 0, 0.03);
+    --height: 44px;
+    padding: 0;
+    font-size: 14px;
+  }
+}
+
+.lista-especialidades {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  padding-bottom: 16px;
+}
+
+.especialidad-item {
+  display: flex;
+  align-items: center;
+  background: #ffffff;
+  border-radius: 14px;
+  padding: 16px 18px;
+  gap: 16px;
+  box-shadow: 0 2px 8px $sombra-suave;
+  transition: all 0.2s ease;
+  cursor: pointer;
+
+  &:active {
+    transform: scale(0.98);
+  }
+}
+
+.icono-item {
+  width: 48px;
+  height: 48px;
+  min-width: 48px;
+  border-radius: 14px;
+  background: $acento-primario-claro;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  ion-icon {
+    font-size: 24px;
+    color: $acento-primario;
+  }
+}
+
+.info-item {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  gap: 3px;
+}
+
+.nombre-item {
+  font-size: 15px;
+  font-weight: 600;
+  color: $texto-principal;
+}
+
+.medicos-item {
+  font-size: 12px;
+  color: $acento-primario;
+  font-weight: 500;
+}
+
+.flecha-item {
+  ion-icon {
+    font-size: 18px;
+    color: #b0c8de;
+  }
+}

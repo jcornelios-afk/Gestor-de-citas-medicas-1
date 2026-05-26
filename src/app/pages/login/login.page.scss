@@ -1,0 +1,316 @@
+$fondo-total: #e8f0f8;
+$fondo-input: #ffffff;
+$fondo-input-focus: #f0f5fa;
+$sombra-input: rgba(0, 0, 0, 0.04);
+
+$texto-principal: #1e3a5f;
+$texto-secundario: #4a6d8c;
+$texto-label: #3d5f80;
+$texto-placeholder: #8aa0b8;
+
+$acento-primario: #3b6fa0;
+$acento-primario-hover: #4d85b8;
+$acento-primario-active: #2e5880;
+$acento-primario-claro: #dce8f2;
+
+$acento-secundario: #4a7a9e;
+$acento-secundario-suave: #e3edf5;
+
+$acento-terciario: #5c8ab0;
+$acento-terciario-claro: #ecf2f8;
+
+$error-fondo: #f0f5fa;
+$error-borde: #3b6fa0;
+$sombra-boton: rgba(59, 111, 160, 0.3);
+$sombra-primario: rgba(59, 111, 160, 0.2);
+$borde-suave: #c5d5e6;
+
+:host {
+  display: block;
+  height: 100%;
+}
+
+ion-content {
+  --background: #{$fondo-total};
+  background-color: $fondo-total;
+  height: 100%;
+}
+
+.login-content {
+  --background: #{$fondo-total} !important;
+  background: linear-gradient(165deg, #e8f0f8 0%, #f4f7fb 50%, #e8f0f8 100%);
+  height: 100%;
+  padding: 24px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.hero {
+  text-align: center;
+  margin-bottom: 40px;
+
+  .logo-icon {
+    width: auto;
+    height: 60px;
+    max-width: 180px;
+    margin-bottom: 16px;
+    filter: drop-shadow(0 12px 24px $sombra-primario);
+    transition: all 0.3s ease;
+    object-fit: contain;
+    
+    &:hover {
+      transform: scale(1.05);
+    }
+  }
+
+  h1 {
+    font-size: 30px;
+    font-weight: 700;
+    color: $texto-principal;
+    letter-spacing: -0.5px;
+    margin: 0 0 8px 0;
+    line-height: 1.2;
+  }
+
+  p {
+    font-size: 14px;
+    color: $acento-secundario;
+    margin: 0;
+    font-weight: 600;
+    letter-spacing: 0.3px;
+    background: $acento-secundario-suave;
+    display: inline-block;
+    padding: 6px 16px;
+    border-radius: 20px;
+    border: 1.5px solid rgba(74, 122, 158, 0.3);
+    box-shadow: 0 2px 8px rgba(74, 122, 158, 0.1);
+  }
+}
+
+.formulario {
+  max-width: 420px;
+  width: 100%;
+  margin: 0 auto;
+}
+
+.campo {
+  margin-bottom: 20px;
+
+  label {
+    display: block;
+    font-size: 12px;
+    font-weight: 700;
+    color: $texto-label;
+    margin-bottom: 6px;
+    margin-left: 4px;
+    letter-spacing: 0.8px;
+    text-transform: uppercase;
+  }
+
+  ion-input {
+    --background: #{$fondo-input};
+    --border-radius: 16px;
+    --padding-start: 18px;
+    --padding-end: 18px;
+    --padding-top: 14px;
+    --padding-bottom: 14px;
+    --color: #{$texto-principal};
+    --placeholder-color: #{$texto-placeholder};
+    --placeholder-opacity: 1;
+    --placeholder-font-style: normal;
+    --border-width: 2px;
+    --border-color: #{$borde-suave};
+    --highlight-color-focused: #{$acento-primario};
+    --highlight-color-valid: #{$acento-secundario};
+    
+    background: $fondo-input;
+    border-radius: 16px;
+    font-size: 16px;
+    letter-spacing: 0.2px;
+    box-shadow: 0 2px 8px $sombra-input;
+    transition: all 0.25s ease;
+
+    &:hover {
+      --border-color: #{$acento-terciario};
+      box-shadow: 0 4px 14px rgba(0, 0, 0, 0.05);
+    }
+
+    &.has-focus {
+      --border-color: #{$acento-primario};
+      --background: #{$fondo-input-focus};
+      box-shadow: 0 4px 18px $sombra-primario;
+      transform: translateY(-1px);
+    }
+  }
+}
+
+.boton {
+  --background: #{$acento-primario};
+  --background-activated: #{$acento-primario-active};
+  --background-hover: #{$acento-primario-hover};
+  --border-radius: 16px;
+  --padding-top: 16px;
+  --padding-bottom: 16px;
+  --color: #ffffff;
+  --box-shadow: 0 8px 28px $sombra-boton, 0 3px 6px rgba(0, 0, 0, 0.08);
+  
+  margin-top: 24px;
+  font-size: 17px;
+  font-weight: 700;
+  text-transform: none;
+  letter-spacing: 0.5px;
+  transition: all 0.2s ease;
+  position: relative;
+  overflow: hidden;
+
+  &::after {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: -100%;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(90deg, transparent, rgba(255,255,255,0.25), transparent);
+    transition: left 0.5s ease;
+    border-radius: 16px;
+  }
+
+  &:hover::after {
+    left: 100%;
+  }
+  
+  &:active {
+    transform: scale(0.96);
+    --box-shadow: 0 4px 14px $sombra-boton;
+  }
+
+  &[disabled] {
+    --background: #dce4ed;
+    --color: #99adc2;
+    --box-shadow: none;
+    opacity: 1;
+    pointer-events: none;
+    
+    &::after {
+      display: none;
+    }
+  }
+}
+
+.error-mensaje {
+  background: $error-fondo;
+  border-radius: 16px;
+  padding: 14px 18px;
+  margin-top: 20px;
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  border: 2px solid $error-borde;
+  box-shadow: 0 4px 14px rgba(59, 111, 160, 0.12);
+
+  ion-icon {
+    color: $acento-primario;
+    font-size: 24px;
+    flex-shrink: 0;
+    animation: pulse 2s ease-in-out infinite;
+    filter: drop-shadow(0 2px 4px rgba(59, 111, 160, 0.3));
+  }
+
+  span {
+    color: $texto-principal;
+    font-size: 14px;
+    font-weight: 600;
+    line-height: 1.5;
+    flex: 1;
+  }
+}
+
+@keyframes pulse {
+  0%, 100% { 
+    opacity: 1;
+    transform: scale(1);
+  }
+  50% { 
+    opacity: 0.7;
+    transform: scale(1.1);
+  }
+}
+
+.input-hint {
+  margin-top: 6px;
+  margin-left: 8px;
+  font-size: 13px;
+  color: $acento-primario;
+  font-weight: 600;
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  background: $acento-primario-claro;
+  padding: 6px 12px;
+  border-radius: 10px;
+  width: fit-content;
+  border: 1px solid rgba(59, 111, 160, 0.25);
+}
+
+.footer {
+  text-align: center;
+  padding-top: 32px;
+  padding-bottom: 8px;
+
+  p {
+    font-size: 13px;
+    color: $texto-secundario;
+    margin: 0;
+    line-height: 1.6;
+    font-weight: 500;
+  }
+
+  strong {
+    color: $acento-primario;
+    font-weight: 700;
+    letter-spacing: 0.2px;
+    background: $acento-primario-claro;
+    padding: 2px 8px;
+    border-radius: 8px;
+    border: 1px solid rgba(59, 111, 160, 0.25);
+  }
+}
+
+@media (max-width: 360px) {
+  .login-content {
+    padding: 16px;
+    justify-content: center;
+    align-items: center;
+  }
+
+  .hero {
+    margin-bottom: 32px;
+
+    .logo-icon {
+      height: 50px;
+    }
+
+    h1 {
+      font-size: 26px;
+    }
+
+    p {
+      font-size: 13px;
+      padding: 4px 12px;
+    }
+  }
+
+  .campo ion-input {
+    --padding-top: 12px;
+    --padding-bottom: 12px;
+    font-size: 15px;
+  }
+
+  .boton {
+    font-size: 16px;
+    --padding-top: 14px;
+    --padding-bottom: 14px;
+  }
+}

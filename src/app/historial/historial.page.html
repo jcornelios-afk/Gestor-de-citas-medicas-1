@@ -1,0 +1,74 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-buttons slot="start">
+      <ion-button (click)="volver()">
+        <ion-icon slot="icon-only" name="arrow-back-outline"></ion-icon>
+      </ion-button>
+    </ion-buttons>
+    <ion-title>Historial de Citas</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content class="historial-content">
+  
+  <div class="filtros">
+    <div 
+      class="filtro-item" 
+      [class.activo]="filtro === 'todas'"
+      (click)="cambiarFiltro('todas')">
+      Todas
+    </div>
+    <div 
+      class="filtro-item" 
+      [class.activo]="filtro === 'pendiente'"
+      (click)="cambiarFiltro('pendiente')">
+      Pendientes
+    </div>
+    <div 
+      class="filtro-item" 
+      [class.activo]="filtro === 'completada'"
+      (click)="cambiarFiltro('completada')">
+      Completadas
+    </div>
+    <div 
+      class="filtro-item" 
+      [class.activo]="filtro === 'cancelada'"
+      (click)="cambiarFiltro('cancelada')">
+      Canceladas
+    </div>
+  </div>
+
+  <div class="lista-citas">
+    <div 
+      class="cita-card" 
+      *ngFor="let cita of citasFiltradas"
+      (click)="verDetalle(cita)">
+      
+      <div class="cita-estado" [class]="cita.estado"></div>
+      
+      <div class="cita-contenido">
+        <div class="cita-especialidad-icono">
+          <ion-icon name="medkit-outline"></ion-icon>
+        </div>
+        <div class="cita-info">
+          <span class="cita-especialidad">{{ cita.especialidad }}</span>
+          <span class="cita-medico">{{ cita.medico }}</span>
+          <div class="cita-fecha-hora">
+            <ion-icon name="calendar-outline"></ion-icon>
+            <span>{{ cita.fecha }}</span>
+            <ion-icon name="time-outline"></ion-icon>
+            <span>{{ cita.hora }}</span>
+          </div>
+        </div>
+        <div class="cita-flecha">
+          <ion-icon name="chevron-forward-outline"></ion-icon>
+        </div>
+      </div>
+
+      <div class="cita-tag">
+        <span [class]="'tag-' + cita.estado">{{ cita.estado }}</span>
+      </div>
+    </div>
+  </div>
+
+</ion-content>

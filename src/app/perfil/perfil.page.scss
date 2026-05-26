@@ -1,0 +1,151 @@
+$fondo-total: #e8f0f8;
+$texto-principal: #1e3a5f;
+$texto-secundario: #4a6d8c;
+$acento-primario: #3b6fa0;
+$acento-primario-claro: #dce8f2;
+$sombra-suave: rgba(0, 0, 0, 0.04);
+
+ion-toolbar {
+  --background: #3b6fa0;
+  --color: #ffffff;
+  --border-color: transparent;
+  box-shadow: 0 4px 16px rgba(59, 111, 160, 0.25);
+}
+
+ion-title {
+  font-weight: 700;
+  font-size: 18px;
+  letter-spacing: -0.3px;
+}
+
+ion-button {
+  --color: #ffffff;
+}
+
+ion-content {
+  --background: #{$fondo-total};
+}
+
+.perfil-content {
+  --background: #{$fondo-total};
+  --padding-top: 32px;
+  --padding-bottom: 32px;
+  --padding-start: 20px;
+  --padding-end: 20px;
+}
+
+.avatar-perfil {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin-bottom: 32px;
+}
+
+.iniciales-avatar {
+  width: 80px;
+  height: 80px;
+  border-radius: 50%;
+  background: $acento-primario;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-bottom: 14px;
+  box-shadow: 0 6px 20px rgba(59, 111, 160, 0.3);
+
+  span {
+    font-size: 36px;
+    font-weight: 700;
+    color: #ffffff;
+  }
+}
+
+.avatar-perfil h2 {
+  font-size: 20px;
+  font-weight: 700;
+  color: $texto-principal;
+  margin: 0 0 4px 0;
+}
+
+.avatar-perfil p {
+  font-size: 13px;
+  color: $texto-secundario;
+  margin: 0;
+}
+
+.info-cuenta {
+  background: #ffffff;
+  border-radius: 16px;
+  padding: 8px 0;
+  margin-bottom: 24px;
+  box-shadow: 0 2px 8px $sombra-suave;
+}
+
+.info-item {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+  padding: 16px 20px;
+  border-bottom: 1px solid #f0f4f8;
+
+  &:last-child {
+    border-bottom: none;
+  }
+
+  ion-icon {
+    font-size: 22px;
+    color: $acento-primario;
+    width: 24px;
+  }
+}
+
+.info-texto {
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+}
+
+.info-label {
+  font-size: 11px;
+  color: $texto-secundario;
+  font-weight: 500;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+}
+
+.info-valor {
+  font-size: 15px;
+  color: $texto-principal;
+  font-weight: 600;
+}
+
+.botones-perfil {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+.boton-editar {
+  --background: #{$acento-primario-claro};
+  --background-activated: #c5d6e8;
+  --border-radius: 14px;
+  --padding-top: 16px;
+  --padding-bottom: 16px;
+  --color: #{$acento-primario};
+  font-size: 15px;
+  font-weight: 600;
+  letter-spacing: 0.3px;
+  margin: 0;
+}
+
+.boton-salir {
+  --background: #f8dce1;
+  --background-activated: #f0c4cc;
+  --border-radius: 14px;
+  --padding-top: 16px;
+  --padding-bottom: 16px;
+  --color: #c75b6e;
+  font-size: 15px;
+  font-weight: 600;
+  letter-spacing: 0.3px;
+  margin: 0;
+}

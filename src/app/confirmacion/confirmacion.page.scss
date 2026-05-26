@@ -1,0 +1,147 @@
+$fondo-total: #e8f0f8;
+$texto-principal: #1e3a5f;
+$texto-secundario: #4a6d8c;
+$acento-primario: #3b6fa0;
+$acento-primario-claro: #dce8f2;
+$verde-cita: #5a9e7e;
+$verde-cita-claro: #e8f5ee;
+
+ion-content {
+  --background: #{$fondo-total};
+}
+
+.confirmacion-content {
+  --background: #{$fondo-total};
+  --padding-top: 60px;
+  --padding-bottom: 40px;
+  --padding-start: 20px;
+  --padding-end: 20px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.tarjeta-confirmacion {
+  background: #ffffff;
+  border-radius: 24px;
+  padding: 40px 24px 32px 24px;
+  width: 100%;
+  max-width: 420px;
+  box-shadow: 0 8px 30px rgba(0, 0, 0, 0.06);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.icono-confirmacion {
+  width: 80px;
+  height: 80px;
+  border-radius: 50%;
+  background: $verde-cita-claro;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-bottom: 20px;
+
+  ion-icon {
+    font-size: 48px;
+    color: $verde-cita;
+  }
+}
+
+.titulo-confirmacion {
+  font-size: 24px;
+  font-weight: 700;
+  color: $texto-principal;
+  margin: 0 0 6px 0;
+}
+
+.subtitulo-confirmacion {
+  font-size: 14px;
+  color: $texto-secundario;
+  margin: 0 0 28px 0;
+}
+
+.detalles-cita {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+  margin-bottom: 24px;
+  padding: 20px;
+  background: $fondo-total;
+  border-radius: 16px;
+}
+
+.detalle-item {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+
+  ion-icon {
+    font-size: 20px;
+    color: $acento-primario;
+    width: 24px;
+  }
+}
+
+.detalle-texto {
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+}
+
+.detalle-label {
+  font-size: 11px;
+  color: $texto-secundario;
+  font-weight: 500;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+}
+
+.detalle-valor {
+  font-size: 15px;
+  color: $texto-principal;
+  font-weight: 600;
+}
+
+.codigo-cita {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 4px;
+  margin-bottom: 28px;
+  padding: 14px 24px;
+  background: $acento-primario-claro;
+  border-radius: 12px;
+  width: 100%;
+}
+
+.codigo-label {
+  font-size: 11px;
+  color: $texto-secundario;
+  font-weight: 500;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+}
+
+.codigo-numero {
+  font-size: 18px;
+  font-weight: 700;
+  color: $acento-primario;
+  letter-spacing: 1px;
+}
+
+.boton-home {
+  --background: #{$acento-primario};
+  --background-activated: #2e5880;
+  --border-radius: 14px;
+  --padding-top: 16px;
+  --padding-bottom: 16px;
+  --color: #ffffff;
+  font-size: 16px;
+  font-weight: 700;
+  letter-spacing: 0.4px;
+  width: 100%;
+  margin: 0;
+}

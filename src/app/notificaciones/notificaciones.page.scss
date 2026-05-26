@@ -1,0 +1,120 @@
+$fondo-total: #e8f0f8;
+$texto-principal: #1e3a5f;
+$texto-secundario: #4a6d8c;
+$acento-primario: #3b6fa0;
+$sombra-suave: rgba(0, 0, 0, 0.04);
+
+ion-toolbar {
+  --background: #3b6fa0;
+  --color: #ffffff;
+  --border-color: transparent;
+  box-shadow: 0 4px 16px rgba(59, 111, 160, 0.25);
+}
+
+ion-title {
+  font-weight: 700;
+  font-size: 18px;
+  letter-spacing: -0.3px;
+}
+
+ion-button {
+  --color: #ffffff;
+}
+
+ion-content {
+  --background: #{$fondo-total};
+}
+
+.notificaciones-content {
+  --background: #{$fondo-total};
+  --padding-top: 8px;
+  --padding-bottom: 24px;
+  --padding-start: 20px;
+  --padding-end: 20px;
+}
+
+.lista-notificaciones {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.notificacion-item {
+  display: flex;
+  align-items: flex-start;
+  background: #ffffff;
+  border-radius: 16px;
+  padding: 18px;
+  gap: 14px;
+  box-shadow: 0 2px 8px $sombra-suave;
+  cursor: pointer;
+  transition: all 0.2s ease;
+  position: relative;
+
+  &.no-leida {
+    background: #ffffff;
+    box-shadow: 0 4px 14px rgba(59, 111, 160, 0.1);
+  }
+
+  &:active {
+    transform: scale(0.98);
+  }
+}
+
+.icono-notificacion {
+  width: 48px;
+  height: 48px;
+  min-width: 48px;
+  border-radius: 14px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  ion-icon {
+    font-size: 24px;
+  }
+}
+
+.contenido-notificacion {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+}
+
+.notificacion-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  gap: 8px;
+}
+
+.notificacion-titulo {
+  font-size: 15px;
+  font-weight: 600;
+  color: $texto-principal;
+  flex: 1;
+}
+
+.notificacion-fecha {
+  font-size: 11px;
+  color: $texto-secundario;
+  white-space: nowrap;
+}
+
+.notificacion-mensaje {
+  font-size: 13px;
+  color: $texto-secundario;
+  margin: 0;
+  line-height: 1.5;
+}
+
+.punto-leida {
+  position: absolute;
+  top: 22px;
+  right: 18px;
+  width: 10px;
+  height: 10px;
+  background: $acento-primario;
+  border-radius: 50%;
+}

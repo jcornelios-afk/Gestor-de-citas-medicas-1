@@ -32,38 +32,72 @@
         class="dia-numero" 
         *ngFor="let dia of diasNumeros"
         [class.seleccionado]="dia === diaSeleccionado"
+        [class.no-disponible]="esDiaNoDisponible(dia)"
         (click)="seleccionarDia(dia)">
-        {{ dia }}
+        <span>{{ dia }}</span>
+        <span class="dia-etiqueta" *ngIf="esDiaNoDisponible(dia)">No</span>
+      </div>
+    </div>
+
+    <div class="leyenda">
+      <div class="leyenda-item">
+        <div class="punto disponible"></div>
+        <span>Disponible</span>
+      </div>
+      <div class="leyenda-item">
+        <div class="punto no-disponible"></div>
+        <span>No disponible</span>
+      </div>
+      <div class="leyenda-item">
+        <div class="punto seleccionado"></div>
+        <span>Seleccionado</span>
       </div>
     </div>
   </div>
 
-  <div class="horarios">
+  <div class="horarios" *ngIf="diaSeleccionado">
     <div class="turno">
-      <span class="turno-titulo">Mañana</span>
+      <span class="turno-titulo">
+        <ion-icon name="sunny-outline"></ion-icon>
+        Mañana
+      </span>
       <div class="horas-grid">
         <div 
           class="hora-item" 
           *ngFor="let hora of horasManana"
           [class.seleccionada]="hora === horaSeleccionada"
-          (click)="seleccionarHora(hora)">
-          {{ hora }}
+          [class.ocupada]="esHoraOcupada(hora, 'manana')"
+          (click)="!esHoraOcupada(hora, 'manana') && seleccionarHora(hora)">
+          <span>{{ hora }}</span>
+          <span class="hora-estado" *ngIf="esHoraOcupada(hora, 'manana')">Ocupado</span>
+          <span class="hora-estado disponible-text" *ngIf="!esHoraOcupada(hora, 'manana')">Libre</span>
         </div>
       </div>
     </div>
 
     <div class="turno">
-      <span class="turno-titulo">Tarde</span>
+      <span class="turno-titulo">
+        <ion-icon name="moon-outline"></ion-icon>
+        Tarde
+      </span>
       <div class="horas-grid">
         <div 
           class="hora-item" 
           *ngFor="let hora of horasTarde"
           [class.seleccionada]="hora === horaSeleccionada"
-          (click)="seleccionarHora(hora)">
-          {{ hora }}
+          [class.ocupada]="esHoraOcupada(hora, 'tarde')"
+          (click)="!esHoraOcupada(hora, 'tarde') && seleccionarHora(hora)">
+          <span>{{ hora }}</span>
+          <span class="hora-estado" *ngIf="esHoraOcupada(hora, 'tarde')">Ocupado</span>
+          <span class="hora-estado disponible-text" *ngIf="!esHoraOcupada(hora, 'tarde')">Libre</span>
         </div>
       </div>
     </div>
+  </div>
+
+  <div class="sin-seleccion" *ngIf="!diaSeleccionado">
+    <ion-icon name="calendar-outline"></ion-icon>
+    <p>Selecciona un día disponible para ver los horarios</p>
   </div>
 
 </ion-content>

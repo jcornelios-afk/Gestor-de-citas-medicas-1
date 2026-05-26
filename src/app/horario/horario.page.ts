@@ -18,13 +18,17 @@ export class HorarioPage {
   
   diasSemana = ['L', 'M', 'M', 'J', 'V', 'S', 'D'];
   diasNumeros = [12, 13, 14, 15, 16, 17, 18];
-  diaSeleccionado: number = 15;
+  diaSeleccionado: number | null = null;
 
   horasManana = ['08:00 AM', '08:30 AM', '09:00 AM', '09:30 AM', '10:00 AM', '10:30 AM', '11:00 AM', '11:30 AM'];
   horasTarde = ['02:00 PM', '02:30 PM', '03:00 PM', '03:30 PM', '04:00 PM', '04:30 PM', '05:00 PM'];
   horaSeleccionada: string = '';
 
   mesActual: string = 'Mayo 2026';
+
+  diasNoDisponibles: number[] = [12, 13, 17, 18];
+  horasOcupadasManana: string[] = ['09:00 AM', '10:30 AM'];
+  horasOcupadasTarde: string[] = ['03:00 PM', '04:30 PM'];
 
   constructor(private router: Router) {
     const medicoData = localStorage.getItem('medico');
@@ -33,9 +37,24 @@ export class HorarioPage {
     if (especialidadData) this.especialidad = JSON.parse(especialidadData);
   }
 
+  esDiaNoDisponible(dia: number): boolean {
+    return this.diasNoDisponibles.includes(dia);
+  }
+
+  esDiaSeleccionable(dia: number): boolean {
+    return !this.esDiaNoDisponible(dia);
+  }
+
   seleccionarDia(dia: number) {
-    this.diaSeleccionado = dia;
-    this.horaSeleccionada = '';
+    if (this.esDiaSeleccionable(dia)) {
+      this.diaSeleccionado = dia;
+      this.horaSeleccionada = '';
+    }
+  }
+
+  esHoraOcupada(hora: string, turno: string): boolean {
+    if (turno === 'manana') return this.horasOcupadasManana.includes(hora);
+    return this.horasOcupadasTarde.includes(hora);
   }
 
   seleccionarHora(hora: string) {

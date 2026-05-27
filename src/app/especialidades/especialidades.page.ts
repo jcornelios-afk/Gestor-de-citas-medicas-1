@@ -1,8 +1,9 @@
-import { Component } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { FormsModule } from '@angular/forms';
 import { IonicModule } from '@ionic/angular';
 import { Router } from '@angular/router';
+import { FirebaseService } from '../services/firebase.service';
 
 @Component({
   selector: 'app-especialidades',
@@ -11,29 +12,15 @@ import { Router } from '@angular/router';
   standalone: true,
   imports: [CommonModule, FormsModule, IonicModule]
 })
-export class EspecialidadesPage {
+export class EspecialidadesPage implements OnInit {
 
-  paciente: any = {};
   textoBusqueda: string = '';
+  especialidades: any[] = [];
 
-  especialidades = [
-    { id: 1, nombre: 'Cardiología', icono: 'heart-outline', medicos: 5 },
-    { id: 2, nombre: 'Pediatría', icono: 'happy-outline', medicos: 4 },
-    { id: 3, nombre: 'Traumatología', icono: 'fitness-outline', medicos: 3 },
-    { id: 4, nombre: 'Dermatología', icono: 'sunny-outline', medicos: 2 },
-    { id: 5, nombre: 'Oftalmología', icono: 'eye-outline', medicos: 3 },
-    { id: 6, nombre: 'Ginecología', icono: 'flower-outline', medicos: 4 },
-    { id: 7, nombre: 'Neurología', icono: 'pulse-outline', medicos: 3 },
-    { id: 8, nombre: 'Odontología', icono: 'sparkles-outline', medicos: 4 },
-    { id: 9, nombre: 'Psiquiatría', icono: 'chatbubbles-outline', medicos: 2 },
-    { id: 10, nombre: 'Medicina General', icono: 'medkit-outline', medicos: 8 }
-  ];
+  constructor(private router: Router, private firebaseService: FirebaseService) {}
 
-  constructor(private router: Router) {
-    const data = localStorage.getItem('paciente');
-    if (data) {
-      this.paciente = JSON.parse(data);
-    }
+  async ngOnInit() {
+    this.especialidades = await this.firebaseService.getEspecialidades();
   }
 
   get especialidadesFiltradas() {
@@ -49,6 +36,7 @@ export class EspecialidadesPage {
   }
 
   cerrarSesion() {
+    this.firebaseService.cerrarSesion();
     localStorage.clear();
     this.router.navigate(['/login']);
   }
